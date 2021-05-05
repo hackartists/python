@@ -55,5 +55,7 @@ def parseWindow(line):
     win_id, desktop, pos_x, pos_y, size_x, size_y, rest = line.decode().split(None, 6)
     win_class, rest = rest.split('  ', 1)
     host, title = rest.strip().split(None, 1)
+    if win_class == "N/A":
+        win_class = "unknown." + title
 
     return [win_id, pos_x, desktop, win_class, host, title]
